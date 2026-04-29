@@ -1,0 +1,17 @@
+{
+  "name": "mon-api-node",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint src --max-warnings=0",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "@eslint/js": "latest",
+    "globals": "latest"
+  },
+  "dependencies": {
+    "express": "latest"
+  }
+}

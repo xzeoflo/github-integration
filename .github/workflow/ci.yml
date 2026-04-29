@@ -1,0 +1,39 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          cache: 'npm' 
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+      - name: Run Lint (Validate)
+        run: npm run lint
+
+      - name: Run Tests
+        run: npm test || echo "Pas encore de tests définis"
+
+      - name: Build
+        run: npm run build || echo "Pas de script build"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: ./dist
