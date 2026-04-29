@@ -4,12 +4,13 @@
   "scripts": {
     "start": "node src/index.js",
     "lint": "eslint src --max-warnings=0",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "vitest run"
   },
   "devDependencies": {
-    "eslint": "latest",
     "@eslint/js": "latest",
-    "globals": "latest"
+    "eslint": "latest",
+    "globals": "latest",
+    "vitest": "^4.1.5"
   },
   "dependencies": {
     "express": "latest"
